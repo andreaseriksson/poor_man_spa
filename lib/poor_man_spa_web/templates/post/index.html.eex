@@ -1,5 +1,7 @@
 <h1>Listing Posts</h1>
 
+<%= Phoenix.LiveView.live_render(@conn, PoorManSpaWeb.PostLive, session: %{}) %>
+
 <table>
   <thead>
     <tr>
