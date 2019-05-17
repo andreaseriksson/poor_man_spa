@@ -51,6 +51,15 @@ defmodule PoorManSpaWeb.PostController do
     end
   end
 
+  def delete(%{assigns: %{format: :js}} = conn, %{"id" => id}) do
+    post = Blog.get_post!(id)
+    {:ok, _post} = Blog.delete_post(post)
+
+    conn
+    |> put_resp_content_type("text/plain")
+    |> send_resp(:ok, "")
+  end
+
   def delete(conn, %{"id" => id}) do
     post = Blog.get_post!(id)
     {:ok, _post} = Blog.delete_post(post)

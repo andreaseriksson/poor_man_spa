@@ -6,6 +6,7 @@ defmodule PoorManSpaWeb.Router do
     plug :fetch_session
     plug :fetch_flash
     plug Phoenix.LiveView.Flash
+    plug PoorManSpaWeb.Plugs.RequestFormat
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
