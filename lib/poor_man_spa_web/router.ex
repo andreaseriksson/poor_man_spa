@@ -17,6 +17,8 @@ defmodule PoorManSpaWeb.Router do
   scope "/", PoorManSpaWeb do
     pipe_through :browser
 
+    resources "/posts", PostController
+
     get "/", PageController, :index
   end
 
