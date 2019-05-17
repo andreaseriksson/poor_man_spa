@@ -8,6 +8,16 @@ defmodule PoorManSpa.Blog do
 
   alias PoorManSpa.Blog.Post
 
+  @topic inspect(__MODULE__)
+  def subscribe do
+    Phoenix.PubSub.subscribe(PoorManSpa.PubSub, @topic)
+  end
+
+  def notify_subscribers(data, message \\ :posts_updated) do
+    Phoenix.PubSub.broadcast(PoorManSpa.PubSub, @topic, {__MODULE__, message})
+    data
+  end
+
   @doc """
   Returns the list of posts.
 
@@ -53,6 +63,7 @@ defmodule PoorManSpa.Blog do
     %Post{}
     |> Post.changeset(attrs)
     |> Repo.insert()
+    |> notify_subscribers()
   end
 
   @doc """
@@ -71,6 +82,7 @@ defmodule PoorManSpa.Blog do
     post
     |> Post.changeset(attrs)
     |> Repo.update()
+    |> notify_subscribers()
   end
 
   @doc """
@@ -87,6 +99,7 @@ defmodule PoorManSpa.Blog do
   """
   def delete_post(%Post{} = post) do
     Repo.delete(post)
+    |> notify_subscribers()
   end
 
   @doc """

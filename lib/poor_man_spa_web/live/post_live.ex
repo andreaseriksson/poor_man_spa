@@ -8,7 +8,14 @@ defmodule PoorManSpaWeb.PostLive do
   end
 
   def mount(_session, socket) do
+    if connected?(socket), do: Blog.subscribe
+
     posts = Blog.list_posts()
     {:ok, assign(socket, posts: posts, conn: socket)}
+  end
+
+  def handle_info({Blog, _}, socket) do
+    posts = Blog.list_posts()
+    {:noreply, assign(socket, posts: posts, conn: socket)}
   end
 end
