@@ -13,11 +13,15 @@ import "phoenix_html"
 
 import LiveSocket from "phoenix_live_view"
 
-let liveSocket = new LiveSocket("/live")
-liveSocket.connect()
+require("rails-ujs").start()
 
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
+
+let liveSocket = new LiveSocket("/live")
+document.addEventListener("turbolinks:load", function() {
+  liveSocket.connect()
+})
 
 // Import local files
 //
