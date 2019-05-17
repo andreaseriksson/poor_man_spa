@@ -15,7 +15,8 @@ config :poor_man_spa, PoorManSpaWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "19qSHxrmJfEI3okwJZTA10farw30dT9IUAmx2IjfFXpPVtgIFcLHQebYlXuge87g",
   render_errors: [view: PoorManSpaWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: PoorManSpa.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: PoorManSpa.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [signing_salt: "wZiGWNHqQwd0ctV9IkyMFkW37BrzMi+p"]
 
 # Configures Elixir's Logger
 config :logger, :console,

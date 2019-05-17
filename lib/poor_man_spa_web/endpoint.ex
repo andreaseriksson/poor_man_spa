@@ -1,6 +1,7 @@
 defmodule PoorManSpaWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :poor_man_spa
 
+  socket "/live", Phoenix.LiveView.Socket
   socket "/socket", PoorManSpaWeb.UserSocket,
     websocket: true,
     longpoll: false

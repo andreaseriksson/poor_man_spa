@@ -52,7 +52,8 @@ config :poor_man_spa, PoorManSpaWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/poor_man_spa_web/views/.*(ex)$},
-      ~r{lib/poor_man_spa_web/templates/.*(eex)$}
+      ~r{lib/poor_man_spa_web/templates/.*(eex)$},
+      ~r{lib/poor_man_spa_web/live/.*(ex)$}
     ]
   ]
 
