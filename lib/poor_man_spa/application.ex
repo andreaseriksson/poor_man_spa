@@ -11,9 +11,10 @@ defmodule PoorManSpa.Application do
       # Start the Ecto repository
       PoorManSpa.Repo,
       # Start the endpoint when the application starts
-      PoorManSpaWeb.Endpoint
+      PoorManSpaWeb.Endpoint,
       # Starts a worker by calling: PoorManSpa.Worker.start_link(arg)
       # {PoorManSpa.Worker, arg},
+      {PoorManSpa.Blog.Likes, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
