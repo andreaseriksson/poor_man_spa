@@ -1,5 +1,9 @@
 <h1>New Post</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.post_path(@conn, :create)) %>
+<%= Phoenix.LiveView.live_render(
+  @conn,
+  PoorManSpaWeb.PostFormLive,
+  session: %{}
+) %>
 
 <span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>
