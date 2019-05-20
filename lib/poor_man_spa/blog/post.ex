@@ -14,5 +14,6 @@ defmodule PoorManSpa.Blog.Post do
     post
     |> cast(attrs, [:title, :content])
     |> validate_required([:title, :content])
+    |> validate_length(:title, min: 4)
   end
 end
