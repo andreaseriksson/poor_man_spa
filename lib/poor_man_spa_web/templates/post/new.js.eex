@@ -1,0 +1,2 @@
+triggerModal("<%= escape_javascript(render("modal_new.html", conn: @conn)) %>")
+triggerLiveSocket()

@@ -3,4 +3,4 @@
 <%= Phoenix.LiveView.live_render(@conn, PoorManSpaWeb.PostLive, session: %{user_id: Plug.Conn.get_session(@conn, :user_id)}) %>
 
 
-<span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>
+<span><%= link "New Post", to: Routes.post_path(@conn, :new), data: [remote: true] %></span>

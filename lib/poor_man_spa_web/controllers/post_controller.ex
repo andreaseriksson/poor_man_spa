@@ -9,6 +9,11 @@ defmodule PoorManSpaWeb.PostController do
     render(conn, "index.html", posts: posts)
   end
 
+  def new(%{assigns: %{format: :js}} = conn, _params) do
+    changeset = Blog.change_post(%Post{})
+    render(conn, "new.js", changeset: changeset)
+  end
+
   def new(conn, _params) do
     changeset = Blog.change_post(%Post{})
     render(conn, "new.html", changeset: changeset)

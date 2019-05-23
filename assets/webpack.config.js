@@ -29,8 +29,17 @@ module.exports = (env, options) => ({
         }
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /bootstrap\.native/,
+        use: {
+          loader: 'bootstrap.native-loader',
+          options: {
+            only: ['alert', 'button',  'carousel', 'collapse', 'dropdown', 'modal', 'popover', 'tab', 'tooltip']
+          }
+        }
       }
     ]
   },
